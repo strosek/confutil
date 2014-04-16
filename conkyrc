@@ -1,0 +1,114 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+alignment top_right
+background yes
+border_width 3
+cpu_avg_samples 2
+default_color gray
+default_outline_color white
+default_shade_color white
+double_buffer yes
+draw_borders yes
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Droid Sans Mono:size=10
+gap_x 20
+gap_y 60
+minimum_size 100 100
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_colour black
+own_window_class Conky
+own_window_type override
+stippled_borders 1
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+
+TEXT
+${color white}${alignc}${color steel Blue}:::: :::: ${color yellow}SYSTEM MONITOR ${color steel Blue}:::: ::::
+$alignc${color white}${scroll 25 Your object is to save the world, while still leading a pleasant life.}
+${color steel Blue}${stippled_hr 2 2}
+$alignc${color Yellow}System Information
+${color slate grey}OS: ${color white}$sysname $kernel
+${color slate grey}Architecture: ${color white}$machine
+${color slate grey}Host name: ${color white}$nodename
+${color slate grey}Uptime: ${color white}$uptime
+${color slate grey}Time: ${color white}${time %k:%M:%S}
+${color slate grey}Date: ${color white}${time %B %d, %Y}
+${color steel Blue}${stippled_hr 3 1}
+$alignc${color Yellow}System Resources
+${color slate grey}CPU usage average:${color white} ${cpu}% 
+${color cyan}CPU0:${color white} ${cpu cpu1}% @ ${freq_g 1} GHz ${color cyan}${cpubar cpu1 8}
+${color cyan}CPU1:${color white} ${cpu cpu2}% @ ${freq_g 2} GHz ${color cyan}${cpubar cpu2 8}
+${color cyan}CPU2:${color white} ${cpu cpu2}% @ ${freq_g 3} GHz ${color cyan}${cpubar cpu3 8}
+${color cyan}CPU3:${color white} ${cpu cpu2}% @ ${freq_g 4} GHz ${color cyan}${cpubar cpu4 8}
+${color cyan}CPU4:${color white} ${cpu cpu2}% @ ${freq_g 5} GHz ${color cyan}${cpubar cpu5 8}
+${color cyan}CPU5:${color white} ${cpu cpu2}% @ ${freq_g 6} GHz ${color cyan}${cpubar cpu6 8}
+${color cyan}CPU6:${color white} ${cpu cpu2}% @ ${freq_g 7} GHz ${color cyan}${cpubar cpu7 8}
+${color cyan}CPU7:${color white} ${cpu cpu2}% @ ${freq_g 8} GHz ${color cyan}${cpubar cpu8 8}
+
+${color peru}RAM usage:${color white} $mem/$memmax - $memperc%
+      ${color peru}${membar 6}
+${color sea green}Swap usage:${color white} $swap/$swapmax - $swapperc%
+      ${color sea green}${swapbar 6}
+${color steel Blue}${stippled_hr 3 1}
+$alignc${color Yellow}File Systems
+${color slate grey}/boot ${color white}${fs_used /boot}/${fs_size /boot}
+      ${color slate grey}${fs_bar 6 /boot}
+${color slate grey}/     ${color white}${fs_used /}/${fs_size /}
+      ${color slate grey}${fs_bar 6 /}
+${color slate grey}/home ${color white}${fs_used /home}/${fs_size /home}
+      ${color slate grey}${fs_bar 6 /home}
+${color steel Blue}${stippled_hr 3 1}
+$alignc${color Yellow}Networking
+${color slate grey}IP address: ${color white}${addr wlan0}
+${color orange red}Upload speed:$color ${color white}${upspeedf wlan0} KiB/s $alignr${color orange red}${upspeedgraph wlan0 16,60}
+${color green}Download speed: ${color white}${downspeedf wlan0} KiB/s $alignr${color green}${downspeedgraph wlan0 16,60}
+${color steel Blue}${stippled_hr 3 1}
+$alignc${color Yellow}Top Processes
+${color slate grey}Processes: ${color white}$processes  ${color slate grey}Running:${color white} $running_processes
+
+${color slate grey}Highest CPU:
+${color slate grey}Name               PID   CPU%   MEM%
+${color white}${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color white}${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color white}${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color white}${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color slate grey}Highest MEM:
+${color slate grey}Name               PID   CPU%   MEM%
+${color white}${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${color white}${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+${color white}${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+${color white}${top_mem name 4} ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
