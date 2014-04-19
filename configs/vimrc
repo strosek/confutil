@@ -75,13 +75,19 @@ set tabpagemax=15
  
 set mouse=a         " Enable the use of the mouse.
 
-set spell
+set spell           " Check spelling.
 
+" Allow to copy using yank cliboard across multiple instances of Vim.
 set clipboard=unnamed
 
-set confirm
+set confirm        " Use more expressive dialog when confirming exit/save
 
-set colorcolumn=80
+set colorcolumn=80 " Draw a line as a horizontal limit
+
+" For inserting a white blank line with down with Enter, up with Shift-Enter
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
 
 filetype plugin indent on
 syntax on
+
